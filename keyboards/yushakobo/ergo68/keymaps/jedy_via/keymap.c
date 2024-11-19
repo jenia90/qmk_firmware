@@ -19,9 +19,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         [1] = LAYOUT(
             KC_F12,     KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,                              KC_F6,          KC_F7,      KC_F8,      KC_F9,          KC_F10,     KC_F11,
             KC_TRNS,    RGB_VAI,    RGB_VAD,    RGB_SPI,    RGB_SPD,    KC_TRNS,    RGB_MOD,    KC_TRNS,    LALT(KC_LEFT),  KC_HOME,    KC_END,     LALT(KC_RGHT),  KC_TRNS,    KC_TRNS, 
-            KC_TRNS,    KC_CAPS,    RGB_HUI,    RGB_HUD,    KC_TRNS,    KC_TRNS,    RGB_RMOD,   RGB_VAD,    KC_LEFT,        KC_DOWN,    KC_UP,      KC_RGHT,        KC_TRNS,    KC_TRNS,
+            KC_TRNS,    KC_CAPS,    RGB_HUI,    RGB_HUD,    KC_TRNS,    KC_TRNS,    RGB_RMOD,   KC_TRNS,    KC_LEFT,        KC_DOWN,    KC_UP,      KC_RGHT,        KC_TRNS,    KC_TRNS,
             KC_TRNS,    KC_TRNS,    RGB_SAI,    RGB_SAD,    KC_TRNS,    KC_TRNS,    RGB_TOG,    KC_INS,     KC_TRNS,        KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_TRNS,    CW_TOGG,    
-            KC_TRNS,    KC_TRNS,    KC_MPLY,    KC_MPRV,    KC_MNXT,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_VOLU,    KC_VOLD,    KC_MUTE,        KC_TRNS,    KC_TRNS
+            KC_TRNS,    KC_TRNS,    KC_MPLY,    KC_MPRV,    KC_MNXT,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,        KC_VOLD,    KC_VOLU,    KC_MUTE,        KC_TRNS,    KC_TRNS
         )
 };
 
@@ -30,7 +30,7 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     if (host_keyboard_led_state().caps_lock) {
         RGB_MATRIX_INDICATOR_SET_COLOR(0, 0, 0, 128);
     } else {
-        RGB_MATRIX_INDICATOR_SET_COLOR(0, 0, 0, 0);
+        RGB_MATRIX_INDICATOR_SET_COLOR(0, 0, 0, 0)
     }
 
     // num lock cyan
