@@ -6,7 +6,7 @@
         "bootmagic": true,
         "extrakey": true,
         "mousekey": true,
-        "rgb_matrix": true,
+        "rgb_matrix": true
     },
     "development_board": "promicro",
     "diode_direction": "COL2ROW",
@@ -103,18 +103,11 @@
         "max_brightness": 100,
         "sleep": true,
         "split_count": [37, 37],
+        "rgb_split": true,
         "animations":{
             "alphas_mods": true,
             "breathing": true,
-            "cycle_all": true,
-            "rainbow_moving_chevron": true,
-            "cycle_spiral": true,
-            "dual_beacon": true,
-            "rainbow_beacon": true,
-            "raindrops": true,
-            "solid_reactive": true,
-            "splash": true,
-            "solid_splash": true,
+            "typing_heatmap": true
         },
         "default":{
           "val": 50
