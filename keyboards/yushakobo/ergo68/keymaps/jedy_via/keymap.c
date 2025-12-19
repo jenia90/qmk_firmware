@@ -27,8 +27,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     // caps lock cyan
-    if (host_keyboard_led_state().caps_lock) {
+    if (is_caps_word_on() || host_keyboard_led_state().caps_lock) {
         RGB_MATRIX_INDICATOR_SET_COLOR(0, 0, 0, 128);
+        RGB_MATRIX_INDICATOR_SET_COLOR(9, 100, 100, 100);
     } else {
         RGB_MATRIX_INDICATOR_SET_COLOR(0, 0, 0, 0)
     }
@@ -60,4 +61,27 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
             break;
     }
     return false;
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    static bool lshift_pressed = false;
+    static bool rshift_pressed = false;
+
+    switch (keycode) {
+        case KC_LSFT:
+            lshift_pressed = record->event.pressed;
+            if (lshift_pressed && rshift_pressed) {
+                caps_word_toggle();
+                return false;
+            }
+            break;
+        case KC_RSFT:
+            rshift_pressed = record->event.pressed;
+            if (lshift_pressed && rshift_pressed) {
+                caps_word_toggle();
+                return false;
+            }
+            break;
+    }
+    return true;
 }
